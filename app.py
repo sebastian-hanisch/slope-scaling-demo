@@ -80,7 +80,7 @@ with st.expander("So funktioniert Slope Scaling", expanded=True):
 1. **Steigungs-LP:** $\min\sum_{k,e}\big(c^k_e+f_{g(e)}/s_{g(e)}\big)x^k_e$ mit Flusserhaltung je Gut, Kapazität $\sum_k x^k_e\le u_e$ und voller Nachfrage - ein LP, ohne $y$.
 2. **Anpassen:** nach dem LP ist $F_g$ der Fluss auf der Gruppe $g$. Ist $F_g>0$, wird $s_g\leftarrow F_g$ (bei Fluss 0 bleibt die Steigung stehen). Im Punkt $s_g=F_g$ ist die Linearisierung exakt: der Fluss zahlt genau $f_g$.
 3. **Entwurf und wahre Kosten:** der Entwurf sind die Gruppen mit Fluss; die wahren Kosten sind ihre Fixkosten plus die Stückkosten. **Beste merken:** die Kosten schwanken von Iteration zu Iteration, die letzte ist nicht die beste.
-4. **Start:** die Anfangssteigung ist die Kapazität (jede Kante wird als ausgelastet gedacht: Fixkosten sehen billig aus) oder die halbe Gesamtnachfrage.
+4. **Start:** die Anfangssteigung ist die Kapazität (jede Kante wird als ausgelastet gedacht: Fixkosten sehen billig aus) oder die halbe Gesamtnachfrage (höchstens die Kapazität).
 5. **Bausteine (Crainic/Gendron/Hernu 2004):** **Dämpfung** (die Steigung wandert nur halb zum Fluss), **Gedächtnis** (Mittel der Flüsse über alle Iterationen), **Störung** (bei einem Zyklus die Steigungen zufällig auslenken, mit festem Zufallsstrom), **Politur** (Entwurf festhalten, Fluss neu wählen, Kanten einzeln schließen, solange es billiger wird).
 6. **Keine Garantie:** es gibt keine Schranke; das exakte Optimum (HiGHS) dient nur der Bewertung.
         """
@@ -291,7 +291,7 @@ else:
         st.plotly_chart(build_variants(vt), width="stretch", key="variants_chart")
         st.table({"Variante": [r["name"] for r in vt["rows"]], "Lücke (Mittel)": [_pct(r["gap"]) for r in vt["rows"]], "Optimum getroffen": [f"{r['exact']} von {r['n']}" for r in vt["rows"]],
                   "schlechtestes Netz": [_pct(r["gap_max"]) for r in vt["rows"]], "Iterationen": [_f(r["iterations"], 1) for r in vt["rows"]], "Zyklen": [str(r["cycle"]) for r in vt["rows"]]})
-        st.caption(f"{vt['n']} lieferbare Netze. Keine Zutat ist ein Durchbruch: die Lücke liegt zwischen den Varianten nah beieinander; die Dämpfung und die Störung helfen am meisten, das Gedächtnis wenig. Die Unterschiede sind auf {vt['n']} Netzen klein - die Rangfolge ist mit Vorsicht zu lesen.")
+        st.caption(f"{vt['n']} lieferbare Netze. Keine Zutat ist ein Durchbruch: die Lücke liegt zwischen den Varianten nah beieinander; die Dämpfung zusammen mit der Störung hilft am meisten, das Gedächtnis wenig. Die Unterschiede sind auf {vt['n']} Netzen klein - die Rangfolge ist mit Vorsicht zu lesen.")
 
 st.subheader("🔬 Negativkontrollen")
 st.caption("Was fehlt, wenn eine Zutat fehlt: die Steigung wird nie angepasst (nur ein LP), oder es zählt die letzte statt der besten Iteration. Jeweils ohne Politur und Störung.")
@@ -320,7 +320,7 @@ else:
         st.plotly_chart(build_sizes(sz), width="stretch", key="sizes_chart")
         st.table({"Werke/Verteilzentren/Filialen": [f"{r['size'][0]}/{r['size'][1]}/{r['size'][2]}" for r in sz], "Entwurfskanten": [_f(r["groups"], 0) for r in sz], "Lücke Slope Scaling": [_pct(r["gap"]) for r in sz],
                   "Sekunden Slope Scaling": [_sec(r["seconds"]) for r in sz], "Sekunden HiGHS": [_sec(r["highs"]) for r in sz]})
-        st.caption("Die Lücke ist gegen die beste Lösung, die HiGHS im Zeitlimit fand, gerechnet (bei Zeitlimit nicht das bewiesene Optimum). Auf kleinen Netzen ist HiGHS in Hundertstelsekunden fertig und das Verfahren ohne Nutzen; erst bei vielen hundert Entwurfskanten wird der Zeitunterschied groß - zum Preis einer Lücke von einigen Prozent.")
+        st.caption("Die Lücke ist gegen die beste Lösung, die HiGHS im Zeitlimit fand, gerechnet (bei Zeitlimit nicht das bewiesene Optimum). Auf kleinen Netzen (wie denen der Vorgänger, 27 Entwurfskanten) ist HiGHS in Hundertstelsekunden fertig und das Verfahren ohne Nutzen; erst bei vielen hundert Entwurfskanten wird der Zeitunterschied groß - zum Preis einer Lücke von einigen Prozent.")
 
 st.markdown("---")
 
@@ -363,6 +363,6 @@ st.markdown("---")
 
 st.caption(
     "Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – "
-    "Operations Research und Machine Learning. Interesse an einer maßgeschneiderten Lösung für "
-    "Ihr Unternehmen? [Kontakt aufnehmen](https://sebastianhanisch.net/kontakt.html)"
+    "Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). "
+    "Mehr zur Reihe: [Netzwerkfluss: vom Max-Flow zum Netzdesign](https://sebastianhanisch.net/konzepte-netzwerkfluss.html)."
 )

@@ -102,7 +102,7 @@ class Problem:
 
 
 def start_slope(problem, start="cap"):
-    """Anfangssteigung: die Kapazität der Gruppe (ausgelastet gedacht) oder höchstens die Gesamtnachfrage."""
+    """Anfangssteigung: die Kapazität der Gruppe (ausgelastet gedacht) oder, bei start="demand", die halbe Gesamtnachfrage (höchstens die Kapazität, mindestens 1)."""
     cap = problem.cap_of_group.copy()
     if start == "demand":
         cap = np.minimum(cap, max(1.0, problem.design.mcf.total_demand() / 2))
