@@ -2,7 +2,7 @@
 Sebastian Hanisch - Operations Research und Machine Learning
 
 Anders als die Fall-Demos im Portfolio (ein Anwendungsfall, mehrere Verfahren im Vergleich) zeigt diese Demo EIN Verfahren - die Matheuristik Slope Scaling für das Fixkosten-Netzdesign - und lässt stattdessen das Beispiel wachsen.
-Zwölftes und letztes Stück der Hauptlinie der Netzwerkfluss-Linie der "Konzepte"-Reihe, drittes im Netzwerkdesign-Ast: dasselbe Modell wie die beiden Vorgänger, aber ohne Schranke und ohne Beweis - schnell und ungefähr. Siehe README.
+Zwölftes Stück der Hauptlinie der Netzwerkfluss-Linie der "Konzepte"-Reihe, drittes im Netzwerkdesign-Ast: dasselbe Modell wie die beiden Vorgänger, aber ohne Schranke und ohne Beweis - schnell und ungefähr. Siehe README.
 
 Lauffähig mit: streamlit run app.py
 """
@@ -69,7 +69,7 @@ Das sind oft nur ein Dutzend LPs. Kanten ohne Fluss werden **nie** bezahlt: der 
 """
 )
 st.caption(
-    "Anders als die Fall-Demos im Portfolio, die an einem Anwendungsfall mehrere Verfahren vergleichen, zeigt diese Demo - zwölftes und letztes Stück der Hauptlinie der Netzwerkfluss-Linie der \"Konzepte\"-Reihe, drittes im Netzwerkdesign-Ast - **ein** Verfahren an einem wachsenden Beispiel. "
+    "Anders als die Fall-Demos im Portfolio, die an einem Anwendungsfall mehrere Verfahren vergleichen, zeigt diese Demo - zwölftes Stück der Hauptlinie der Netzwerkfluss-Linie der \"Konzepte\"-Reihe, drittes im Netzwerkdesign-Ast - **ein** Verfahren an einem wachsenden Beispiel. "
     "Die Vorgänger: [fixkosten-netzdesign-demo](https://github.com/sebastian-hanisch/fixkosten-netzdesign-demo) (Schranke und Schnitte) und [benders-demo](https://github.com/sebastian-hanisch/benders-demo) (Zerlegung); hier kommt das Verfahren ohne Beweis. "
     "MIP-basierte Nachbarschaftssuchen (Local Branching, RINS) sind bewusst nicht Teil: sie gehören zur LNS-Linie (alns-demo)."
 )
@@ -338,7 +338,7 @@ st.markdown(
 | **Nachbarschaftssuche** | MIP-basierte Verbesserungen (Local Branching, RINS) setzen auf einer Lösung wie dieser auf und gehören in die LNS-Linie (alns-demo). |
 """
 )
-st.caption("Die Netzwerkfluss-Linie ist als Ganzes geplant: Edmonds-Karp, Dinic, Push-Relabel, Successive Shortest Paths, Cycle-Canceling, Cost Scaling, Mehrgüterfluss, Column Generation, Garg-Könemann, Fixkosten-Netzwerkdesign, Benders-Zerlegung und Slope Scaling (dieses Stück) - die Hauptlinie ist damit vollständig.")
+st.caption("Die Netzwerkfluss-Linie ist als Ganzes geplant: Edmonds-Karp, Dinic, Push-Relabel, Successive Shortest Paths, Cycle-Canceling, Cost Scaling, Netzwerksimplex, Mehrgüterfluss, Column Generation, Garg-Könemann, Fixkosten-Netzwerkdesign, Benders-Zerlegung und Slope Scaling (dieses Stück) - bisher sind alle dreizehn Stücke der Hauptlinie gebaut.")
 
 st.markdown("---")
 
