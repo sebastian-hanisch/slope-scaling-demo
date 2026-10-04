@@ -320,7 +320,7 @@ else:
         st.plotly_chart(build_sizes(sz), width="stretch", key="sizes_chart")
         st.table({"Werke/Verteilzentren/Filialen": [f"{r['size'][0]}/{r['size'][1]}/{r['size'][2]}" for r in sz], "Entwurfskanten": [_f(r["groups"], 0) for r in sz], "Lücke Slope Scaling": [_pct(r["gap"]) for r in sz],
                   "Sekunden Slope Scaling": [_sec(r["seconds"]) for r in sz], "Sekunden HiGHS": [_sec(r["highs"]) for r in sz]})
-        st.caption("Die Lücke ist gegen die beste Lösung, die HiGHS im Zeitlimit fand, gerechnet (bei Zeitlimit nicht das bewiesene Optimum). Auf kleinen Netzen (wie denen der Vorgänger, 27 Entwurfskanten) ist HiGHS in Hundertstelsekunden fertig und das Verfahren ohne Nutzen; erst bei vielen hundert Entwurfskanten wird der Zeitunterschied groß - zum Preis einer Lücke von einigen Prozent.")
+        st.caption("Die Lücke ist gegen die beste Lösung, die HiGHS im Zeitlimit fand, gerechnet (bei Zeitlimit nicht das bewiesene Optimum). Auf kleinen Netzen (wie denen der Vorgänger, 27 Entwurfskanten) ist HiGHS in Hundertstelsekunden fertig und das Verfahren ohne Nutzen; erst bei vielen hundert Entwurfskanten wird der Zeitunterschied groß - zum Preis einer Lücke, die mit der Größe wächst (in der Messreihe der Tests etwa 10 % bei 460 und 14 % bei 1 200 Entwurfskanten; je nach Rechner und Zeitlimit etwas anders).")
 
 st.markdown("---")
 

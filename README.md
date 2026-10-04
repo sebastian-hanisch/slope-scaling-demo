@@ -1,6 +1,6 @@
 # Slope Scaling – Fixkosten linearisieren – Streamlit-Demo
 
-*(noch nicht deployed)*
+**[→ Demo live ausprobieren](https://sebastianhanisch-slope-scaling-demo.streamlit.app/)**
 
 Zwölftes und letztes Stück der Hauptlinie der **Netzwerkfluss-Linie** der "Konzepte"-Reihe für die Website "Sebastian Hanisch – Operations Research und Machine Learning", drittes im Netzwerkdesign-Ast:
 anders als die Fall-Demos im Portfolio (ein Anwendungsfall, mehrere Verfahren im Vergleich) zeigt diese Demo **ein** Verfahren – die Matheuristik **Slope Scaling** für das Fixkosten-Netzdesign – an einem wachsenden Beispiel.
