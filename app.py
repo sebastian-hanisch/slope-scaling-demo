@@ -338,7 +338,7 @@ st.markdown(
 | **Nachbarschaftssuche** | MIP-basierte Verbesserungen (Local Branching, RINS) setzen auf einer Lösung wie dieser auf und gehören in die LNS-Linie (alns-demo). |
 """
 )
-st.caption("Die Netzwerkfluss-Linie ist als Ganzes geplant: Edmonds-Karp, Dinic, Push-Relabel, Successive Shortest Paths, Cycle-Canceling, Cost Scaling, Netzwerksimplex, Mehrgüterfluss, Column Generation, Garg-Könemann, Fixkosten-Netzwerkdesign, Benders-Zerlegung und Slope Scaling (dieses Stück) - bisher sind alle dreizehn Stücke der Hauptlinie gebaut.")
+st.caption("Die Netzwerkfluss-Linie besteht aus Edmonds-Karp, Dinic, Push-Relabel, Successive Shortest Paths, Cycle-Canceling, Cost Scaling, Netzwerksimplex, Mehrgüterfluss, Column Generation, Garg-Könemann, Fixkosten-Netzwerkdesign, Benders-Zerlegung und Slope Scaling (dieses Stück; die dreizehn Stücke der Hauptlinie) sowie den Erweiterungen Projektauswahl, Graph Cuts, Gomory-Hu-Baum, Frank-Wolfe, Gradient Projection und Fluss über die Zeit; alle sind gebaut.")
 
 st.markdown("---")
 
@@ -353,7 +353,7 @@ genau die wahren Kosten. Iteration: $s_g^{t+1}=\alpha\,s_g^t+(1-\alpha)F_g^t$ f�
 
 **Wahre Kosten.** $\text{cost}(x)=\sum_{g:\,F_g>0}f_g+\sum c\,x$; das Verfahren merkt $\min_t\text{cost}(x^t)$. **Politur:** bei festem Entwurf $D$ ist der beste Fluss ein LP; dann werden Gruppen aus $D$ (teuerste Fixkosten zuerst) einzeln entfernt, solange die Gesamtkosten sinken.
 
-**Keine Garantie.** Der Zielwert des Steigungs-LP ist weder obere noch untere Schranke der wahren Kosten (er liegt im Fixpunkt genau auf ihnen); das Optimum dient nur der Bewertung.
+**Keine Garantie.** Der Zielwert des Steigungs-LP ist weder obere noch untere Schranke der wahren Kosten (ohne Dämpfung liegt er im Fixpunkt genau auf ihnen; mit Dämpfung stoppt das Verfahren, sobald sich der Fluss wiederholt, die Steigung ist dann noch nicht ganz beim Fluss angekommen, und beide können auseinanderliegen); das Optimum dient nur der Bewertung.
 
 Implementiert in `ss_slope.py` (Steigungs-LP, Schleife, Bausteine, Politur), `ss_formulation.py` (MIP-Optimum, Fluss bei festem Entwurf, Aufrunden; Kopie aus dem Vorgänger), `ss_model.py` und `ss_scenario.py` (Netze), `ss_evaluation.py`, `ss_visualization.py`; das Vergleichs-MIP löst HiGHS über `scipy`.
         """
