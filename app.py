@@ -333,7 +333,7 @@ st.markdown(
 |---|---|
 | **Eine gute Lösung genügt** | Es gibt keine Schranke und keinen Beweis: ob die Lösung 1 % oder 10 % über dem Optimum liegt, weiß man nur mit einem exakten Vergleich (Stück 10 und 11). |
 | **Die Steigung findet den Entwurf** | Ist der Fixpunkt ein lokales Optimum oder ein Zyklus, bleibt das Verfahren stecken; Dämpfung, Gedächtnis und Störung mildern das, beheben es nicht. |
-| **Ein LP je Iteration ist billig** | Für sehr große Netze trägt das LP selbst nicht mehr; dann braucht es Spaltenerzeugung (mcf-column-generation-demo) oder die Näherung ohne LP-Löser (garg-koenemann-demo). |
+| **Ein LP je Iteration ist billig** | Für sehr große Netze reicht das LP selbst nicht mehr; dann braucht es Spaltenerzeugung (mcf-column-generation-demo) oder die Näherung ohne LP-Löser (garg-koenemann-demo). |
 | **Nur Entwurfskanten kosten fix** | Mengenrabatte, Fahrzeugtypen oder Fahrpläne verlangen andere Linearisierungen (leercontainer-demo, linehaul-demo). |
 | **Nachbarschaftssuche** | MIP-basierte Verbesserungen (Local Branching, RINS) setzen auf einer Lösung wie dieser auf und gehören in die LNS-Linie (alns-demo). |
 """
